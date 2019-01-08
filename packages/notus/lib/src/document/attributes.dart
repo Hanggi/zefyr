@@ -390,6 +390,10 @@ class EmbedAttributeBuilder
   NotusAttribute<Map<String, dynamic>> image(String source) =>
       EmbedAttribute.image(source);
 
+  /// davinqi @@@!!!
+  NotusAttribute<Map<String, dynamic>> addMindmap(String str) => EmbedAttribute.addMindmap(str);
+
+
   @override
   NotusAttribute<Map<String, dynamic>> get unset => EmbedAttribute._(null);
 
@@ -405,6 +409,10 @@ class EmbedAttribute extends NotusAttribute<Map<String, dynamic>> {
   static const _kEmbed = 'embed';
   static const _kHorizontalRuleEmbed = 'hr';
   static const _kImageEmbed = 'image';
+
+  /// davinqi
+  static const _kMindmapEmbed = 'mindmap';
+  EmbedAttribute.addMindmap(String str) : this._(<String, dynamic>{'type': _kMindmapEmbed, 'mindmap_id': '1'});
 
   EmbedAttribute._(Map<String, dynamic> value)
       : super._(_kEmbed, NotusAttributeScope.inline, value);

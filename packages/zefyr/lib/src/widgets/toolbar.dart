@@ -11,6 +11,9 @@ import 'buttons.dart';
 import 'scope.dart';
 import 'theme.dart';
 
+import 'package:zefyr/src/davinqi/custom.dart';
+import 'package:groovin_material_icons/groovin_material_icons.dart';
+
 /// List of all button actions supported by [ZefyrToolbar] buttons.
 enum ZefyrToolbarAction {
   bold,
@@ -34,6 +37,15 @@ enum ZefyrToolbarAction {
   hideKeyboard,
   close,
   confirm,
+
+  /// davinqi
+  format,
+  plus,
+  file_tree,
+  sitemap,
+  mindmap,
+  addMindmap,
+  listMindmap,
 }
 
 final kZefyrToolbarAttributeActions = <ZefyrToolbarAction, NotusAttributeKey>{
@@ -49,6 +61,8 @@ final kZefyrToolbarAttributeActions = <ZefyrToolbarAction, NotusAttributeKey>{
   ZefyrToolbarAction.code: NotusAttribute.block.code,
   ZefyrToolbarAction.quote: NotusAttribute.block.quote,
   ZefyrToolbarAction.horizontalRule: NotusAttribute.embed.horizontalRule,
+
+  /// davinqi
 };
 
 /// Allows customizing appearance of [ZefyrToolbar].
@@ -249,17 +263,25 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
   }
 
   List<Widget> _buildButtons(BuildContext context) {
+//    final buttons = <Widget>[
+//      buildButton(context, ZefyrToolbarAction.bold),
+//      buildButton(context, ZefyrToolbarAction.italic),
+//      LinkButton(),
+//      HeadingButton(),
+//      buildButton(context, ZefyrToolbarAction.bulletList),
+//      buildButton(context, ZefyrToolbarAction.numberList),
+//      buildButton(context, ZefyrToolbarAction.quote),
+//      buildButton(context, ZefyrToolbarAction.code),
+//      buildButton(context, ZefyrToolbarAction.horizontalRule),
+//      ImageButton(),
+//    ];
     final buttons = <Widget>[
-      buildButton(context, ZefyrToolbarAction.bold),
-      buildButton(context, ZefyrToolbarAction.italic),
-      LinkButton(),
+      FormatButton(),
       HeadingButton(),
-      buildButton(context, ZefyrToolbarAction.bulletList),
-      buildButton(context, ZefyrToolbarAction.numberList),
-      buildButton(context, ZefyrToolbarAction.quote),
-      buildButton(context, ZefyrToolbarAction.code),
-      buildButton(context, ZefyrToolbarAction.horizontalRule),
+      LinkButton(),
       ImageButton(),
+      CustomToolsButton(),
+      buildButton(context, ZefyrToolbarAction.code),
     ];
     return buttons;
   }
@@ -353,6 +375,14 @@ class _DefaultZefyrToolbarDelegate implements ZefyrToolbarDelegate {
     ZefyrToolbarAction.hideKeyboard: Icons.keyboard_hide,
     ZefyrToolbarAction.close: Icons.close,
     ZefyrToolbarAction.confirm: Icons.check,
+
+    /// davinqi
+    ZefyrToolbarAction.format: GroovinMaterialIcons.format_font,
+    ZefyrToolbarAction.plus: GroovinMaterialIcons.plus_circle_outline,
+    ZefyrToolbarAction.file_tree: GroovinMaterialIcons.file_tree,
+    ZefyrToolbarAction.sitemap: GroovinMaterialIcons.sitemap,
+    ZefyrToolbarAction.addMindmap: GroovinMaterialIcons.plus,
+    ZefyrToolbarAction.listMindmap: GroovinMaterialIcons.view_list,
   };
 
   static const kSpecialIconSizes = {
