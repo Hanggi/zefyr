@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 import 'package:flutter/widgets.dart';
+import 'package:zefyr/src/davinqi/custom.dart';
 
 import 'controller.dart';
 import 'editable_text.dart';
@@ -22,6 +23,10 @@ class ZefyrEditor extends StatefulWidget {
     this.padding: const EdgeInsets.symmetric(horizontal: 16.0),
     this.toolbarDelegate,
     this.imageDelegate,
+
+    /// davinqi delegate
+    this.mindmapDelegate,
+    this.plusDelegate,
     this.physics,
   }) : super(key: key);
 
@@ -33,6 +38,10 @@ class ZefyrEditor extends StatefulWidget {
   final ZefyrImageDelegate imageDelegate;
   final ScrollPhysics physics;
 
+  /// davinqi delegate
+  final DavinqiMindmapDelegate mindmapDelegate;
+  final PlusDelegate plusDelegate;
+
   /// Padding around editable area.
   final EdgeInsets padding;
 
@@ -42,6 +51,11 @@ class ZefyrEditor extends StatefulWidget {
 
 class _ZefyrEditorState extends State<ZefyrEditor> {
   ZefyrImageDelegate _imageDelegate;
+
+  /// davinqi delegate
+  DavinqiMindmapDelegate _mindmapDelegate;
+  PlusDelegate _plusDelegate;
+
   ZefyrScope _scope;
   ZefyrThemeData _themeData;
   GlobalKey<ZefyrToolbarState> _toolbarKey;
@@ -89,6 +103,10 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
   void initState() {
     super.initState();
     _imageDelegate = widget.imageDelegate ?? new ZefyrDefaultImageDelegate();
+
+    /// davinqi delegate
+    _mindmapDelegate = widget.mindmapDelegate;
+	_plusDelegate = widget.plusDelegate;
   }
 
   @override
@@ -99,6 +117,9 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
     if (widget.imageDelegate != oldWidget.imageDelegate) {
       _imageDelegate = widget.imageDelegate ?? new ZefyrDefaultImageDelegate();
       _scope.imageDelegate = _imageDelegate;
+      /// davinqi delegate
+      _scope.mindmapDelegate = _mindmapDelegate;
+	  _scope.plusDelegate = _plusDelegate;
     }
   }
 
@@ -151,6 +172,9 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
       enabled: widget.enabled,
       padding: widget.padding,
       physics: widget.physics,
+
+      /// davinqi
+//      mindmapDelegate: _scope.mindmapDelegate,
     );
 
     return ZefyrTheme(

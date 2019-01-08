@@ -118,6 +118,8 @@ class ZefyrButton extends StatelessWidget {
       return () => toolbar.closeOverlay();
     } else if (action == ZefyrToolbarAction.hideKeyboard) {
       return () => editor.hideKeyboard();
+    } else if (action == ZefyrToolbarAction.plus) {
+      return () => editor.plusDelegate.test();
     }
 
     return null;
@@ -230,6 +232,9 @@ class _HeadingButtonState extends State<HeadingButton> {
         toolbar.buildButton(context, ZefyrToolbarAction.headingLevel1),
         toolbar.buildButton(context, ZefyrToolbarAction.headingLevel2),
         toolbar.buildButton(context, ZefyrToolbarAction.headingLevel3),
+
+        /// davinqi
+        toolbar.buildButton(context, ZefyrToolbarAction.horizontalRule),
       ],
     );
     return ZefyrToolbarScaffold(body: buttons);

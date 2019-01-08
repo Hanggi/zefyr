@@ -4,6 +4,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notus/notus.dart';
+import 'package:zefyr/src/davinqi/custom.dart';
+import 'package:zefyr/src/davinqi/mindtree_rule.dart';
 
 import 'code.dart';
 import 'common.dart';
@@ -33,6 +35,9 @@ class ZefyrEditableText extends StatefulWidget {
     @required this.controller,
     @required this.focusNode,
     @required this.imageDelegate,
+
+    /// davinqi
+    this.mindmapDelegate,
     this.autofocus: true,
     this.enabled: true,
     this.padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -45,6 +50,9 @@ class ZefyrEditableText extends StatefulWidget {
   final bool autofocus;
   final bool enabled;
   final ScrollPhysics physics;
+
+  /// davinqi delegate
+  final DavinqiMindmapDelegate mindmapDelegate;
 
   /// Padding around editable area.
   final EdgeInsets padding;

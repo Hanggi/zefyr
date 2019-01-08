@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:notus/notus.dart';
+import 'package:zefyr/src/davinqi/custom.dart';
 
 import 'controller.dart';
 import 'cursor_timer.dart';
@@ -44,6 +45,7 @@ class ZefyrScope extends ChangeNotifier {
         isEditable = true,
         _controller = controller,
         _imageDelegate = imageDelegate,
+//        _mindmapDelegate = mindmapDelegate,
         _focusNode = focusNode,
         _focusScope = focusScope,
         _cursorTimer = CursorTimer(),
@@ -68,6 +70,26 @@ class ZefyrScope extends ChangeNotifier {
       _imageDelegate = value;
       notifyListeners();
     }
+  }
+
+  /// davinqi delegate
+  DavinqiMindmapDelegate _mindmapDelegate;
+  DavinqiMindmapDelegate get mindmapDelegate => _mindmapDelegate;
+  set mindmapDelegate(DavinqiMindmapDelegate value) {
+    assert(value != null);
+    if (_mindmapDelegate != value) {
+      _mindmapDelegate = value;
+      notifyListeners();
+    }
+  }
+  PlusDelegate _plusDelegate;
+  PlusDelegate get plusDelegate => _plusDelegate;
+  set plusDelegate(PlusDelegate value) {
+	  assert(value != null);
+	  if (_plusDelegate != value) {
+		  _plusDelegate = value;
+		  notifyListeners();
+	  }
   }
 
   ZefyrController _controller;

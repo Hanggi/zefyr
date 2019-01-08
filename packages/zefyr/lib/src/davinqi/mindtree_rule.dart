@@ -11,6 +11,8 @@ import 'package:notus/notus.dart';
 
 import '../widgets/editable_box.dart';
 
+
+
 class MindmapRule extends StatefulWidget {
   const MindmapRule({Key key, @required this.node}) : super(key: key);
 
@@ -23,6 +25,7 @@ class MindmapRule extends StatefulWidget {
 class _MindmapRuleState extends State<MindmapRule> {
   @override
   Widget build(BuildContext context) {
+  	print('mindmap rule');
     return _EditableImage(
       child: Container(
         margin: EdgeInsets.only(top: 10.0),

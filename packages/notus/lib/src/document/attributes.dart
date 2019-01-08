@@ -402,7 +402,8 @@ class EmbedAttributeBuilder
 }
 
 /// Type of embedded content.
-enum EmbedType { horizontalRule, image }
+/// davinqi
+enum EmbedType { horizontalRule, image, mindmap }
 
 class EmbedAttribute extends NotusAttribute<Map<String, dynamic>> {
   static const _kValueEquality = const MapEquality<String, dynamic>();
@@ -412,6 +413,7 @@ class EmbedAttribute extends NotusAttribute<Map<String, dynamic>> {
 
   /// davinqi
   static const _kMindmapEmbed = 'mindmap';
+  /// davinqi doc data string
   EmbedAttribute.addMindmap(String str) : this._(<String, dynamic>{'type': _kMindmapEmbed, 'mindmap_id': '1'});
 
   EmbedAttribute._(Map<String, dynamic> value)
@@ -427,6 +429,8 @@ class EmbedAttribute extends NotusAttribute<Map<String, dynamic>> {
   EmbedType get type {
     if (value['type'] == _kHorizontalRuleEmbed) return EmbedType.horizontalRule;
     if (value['type'] == _kImageEmbed) return EmbedType.image;
+    /// davinqi
+	if (value['type'] == _kMindmapEmbed) return EmbedType.mindmap;
     assert(false, 'Unknown embed attribute value $value.');
     return null;
   }

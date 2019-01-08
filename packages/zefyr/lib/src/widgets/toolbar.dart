@@ -63,6 +63,7 @@ final kZefyrToolbarAttributeActions = <ZefyrToolbarAction, NotusAttributeKey>{
   ZefyrToolbarAction.horizontalRule: NotusAttribute.embed.horizontalRule,
 
   /// davinqi
+
 };
 
 /// Allows customizing appearance of [ZefyrToolbar].
@@ -94,6 +95,11 @@ class ZefyrToolbarScaffold extends StatelessWidget {
     final constraints =
         BoxConstraints.tightFor(height: ZefyrToolbar.kToolbarHeight);
     final children = <Widget>[
+      /// davinqi
+      toolbar.buildButton(
+        context,
+        ZefyrToolbarAction.plus,
+      ),
       Expanded(child: body),
     ];
 
