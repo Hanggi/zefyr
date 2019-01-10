@@ -5,11 +5,11 @@ import 'package:notus/notus.dart';
 //import '../widgets/toolbar.dart';
 
 abstract class PlusDelegate<S> {
-	void test();
-
+  void test();
 }
+
 abstract class DavinqiMindmapDelegate<S> {
-	void test();
+  dynamic test(BuildContext context);
 //	/// Builds image widget for specified [imageSource] and [context].
 //	Widget buildImage(BuildContext context, String imageSource);
 //
@@ -104,9 +104,11 @@ class _CustomToolsButtonState extends State<CustomToolsButton> {
     final editor = ZefyrToolbar.of(context).editor;
     print('pick mindtree');
 
-    editor.mindmapDelegate.test();
-//    final image = await editor.imageDelegate.pickImage(ImageSource.gallery);
-//    if (image != null)
-    editor.formatSelection(NotusAttribute.embed.addMindmap('test mindtree'));
+    dynamic obj = await editor.mindmapDelegate.test(context);
+//    print(obj.toString());
+    editor.formatSelection(NotusAttribute.embed.addMindmap(
+      id: int.parse(obj['id'].toString()),
+      imgUrl: obj['img_url'].toString(),
+    ));
   }
 }

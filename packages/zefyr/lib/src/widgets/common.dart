@@ -149,11 +149,18 @@ class _RawZefyrLineState extends State<RawZefyrLine> {
     } else if (embed.type == EmbedType.image) {
       return ZefyrImage(node: node, delegate: scope.imageDelegate);
 
-      /// davinqi
+      /// davinqi delegate
     } else if (embed.type == EmbedType.mindmap) {
       final mindmap = new MindmapRule(node: node);
-//      print(embed.);
-      return MindmapRule(node: node);
+//      print(embed);
+//      print(embed.mindmapId);
+//      print(widget.node.toString());
+//      print(scope);
+      return MindmapRule(
+        node: node,
+        id: embed.mindmapId,
+        img: embed.mindmapImg,
+      );
     } else {
       throw new UnimplementedError('Unimplemented embed type ${embed.type}');
     }

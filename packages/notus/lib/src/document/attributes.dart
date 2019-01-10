@@ -391,8 +391,8 @@ class EmbedAttributeBuilder
       EmbedAttribute.image(source);
 
   /// davinqi @@@!!!
-  NotusAttribute<Map<String, dynamic>> addMindmap(String str) => EmbedAttribute.addMindmap(str);
-
+  NotusAttribute<Map<String, dynamic>> addMindmap({int id, String imgUrl}) =>
+      EmbedAttribute.addMindmap(id, imgUrl);
 
   @override
   NotusAttribute<Map<String, dynamic>> get unset => EmbedAttribute._(null);
@@ -413,8 +413,14 @@ class EmbedAttribute extends NotusAttribute<Map<String, dynamic>> {
 
   /// davinqi
   static const _kMindmapEmbed = 'mindmap';
+
   /// davinqi doc data string
-  EmbedAttribute.addMindmap(String str) : this._(<String, dynamic>{'type': _kMindmapEmbed, 'mindmap_id': '1'});
+  EmbedAttribute.addMindmap(int id, String imgUrl)
+      : this._(<String, dynamic>{
+          'type': _kMindmapEmbed,
+          'mindmap_id': id,
+          'mindmap_img': imgUrl
+        });
 
   EmbedAttribute._(Map<String, dynamic> value)
       : super._(_kEmbed, NotusAttributeScope.inline, value);
@@ -429,10 +435,21 @@ class EmbedAttribute extends NotusAttribute<Map<String, dynamic>> {
   EmbedType get type {
     if (value['type'] == _kHorizontalRuleEmbed) return EmbedType.horizontalRule;
     if (value['type'] == _kImageEmbed) return EmbedType.image;
+
     /// davinqi
-	if (value['type'] == _kMindmapEmbed) return EmbedType.mindmap;
+    if (value['type'] == _kMindmapEmbed) return EmbedType.mindmap;
     assert(false, 'Unknown embed attribute value $value.');
     return null;
+  }
+
+  /// davinqi
+  int get mindmapId {
+//    print(value);
+    return int.parse(value['mindmap_id'].toString());
+  }
+
+  String get mindmapImg {
+    return value['mindmap_img'].toString();
   }
 
   @override

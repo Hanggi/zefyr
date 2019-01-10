@@ -8,15 +8,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:notus/notus.dart';
+import 'package:zefyr/src/davinqi/custom.dart';
 
 import '../widgets/editable_box.dart';
 
 
 
 class MindmapRule extends StatefulWidget {
-  const MindmapRule({Key key, @required this.node}) : super(key: key);
+  const MindmapRule({Key key, @required this.node, this.delegate, this.id, this.img}) : super(key: key);
 
   final EmbedNode node;
+  final DavinqiMindmapDelegate delegate;
+  final int id;
+  final String img;
 
   @override
   _MindmapRuleState createState() => _MindmapRuleState();
@@ -25,7 +29,10 @@ class MindmapRule extends StatefulWidget {
 class _MindmapRuleState extends State<MindmapRule> {
   @override
   Widget build(BuildContext context) {
-  	print('mindmap rule');
+
+//    widget.delegate.test(context);
+//  	print(widget.img);
+//  	print('mindmap rule');
     return _EditableImage(
       child: Container(
         margin: EdgeInsets.only(top: 10.0),
@@ -36,8 +43,9 @@ class _MindmapRuleState extends State<MindmapRule> {
         ),
         child: FadeInImage(
           fit: BoxFit.contain,
-          image: NetworkImage(
-              'https://www.mindmeister.com/blog/wp-content/uploads/2015/01/MindMapping_mindmap_handdrawn-796x531.png'),
+//          image: NetworkImage(
+//              'https://www.mindmeister.com/blog/wp-content/uploads/2015/01/MindMapping_mindmap_handdrawn-796x531.png'),
+          image: NetworkImage(widget.img == null ? '' :widget.img),
           placeholder: AssetImage(
             "assets/images/placeholder.png",
           ),
