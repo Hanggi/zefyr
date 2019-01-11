@@ -27,3 +27,7 @@ export 'src/widgets/selection.dart' hide SelectionHandleDriver;
 export 'src/widgets/theme.dart';
 export 'src/widgets/toolbar.dart';
 export 'src/widgets/view.dart';
+
+/// davinqi
+export 'src/davinqi/custom.dart';
+export 'src/davinqi/mindtree_rule.dart';

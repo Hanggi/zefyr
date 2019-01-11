@@ -64,23 +64,23 @@ class _EditableImage extends SingleChildRenderObjectWidget {
   final EmbedNode node;
 
   @override
-  RenderEditableImage createRenderObject(BuildContext context) {
-    return new RenderEditableImage(node: node);
+  MyRenderEditableImage createRenderObject(BuildContext context) {
+    return new MyRenderEditableImage(node: node);
   }
 
   @override
   void updateRenderObject(
-      BuildContext context, RenderEditableImage renderObject) {
+      BuildContext context, MyRenderEditableImage renderObject) {
     renderObject..node = node;
   }
 }
 
-class RenderEditableImage extends RenderBox
+class MyRenderEditableImage extends RenderBox
     with RenderObjectWithChildMixin<RenderBox>, RenderProxyBoxMixin<RenderBox>
     implements RenderEditableBox {
   static const kPaddingBottom = 24.0;
 
-  RenderEditableImage({
+  MyRenderEditableImage({
     RenderImage child,
     @required EmbedNode node,
   }) : _node = node {
