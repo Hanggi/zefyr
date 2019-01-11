@@ -3,7 +3,6 @@ import 'package:zefyr/zefyr.dart';
 import 'package:notus/notus.dart';
 
 //import '../widgets/toolbar.dart';
-
 abstract class PlusDelegate<S> {
   void test();
 }
