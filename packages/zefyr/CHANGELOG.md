@@ -1,15 +1,16 @@
-## Unreleased
 
-* Added non-scrollable `ZefyrView` widget which allows previewing Notus documents inside
-  layouts using their own scrollables like ListView.
-* Breaking change: renamed `EditableRichText` to `ZefyrRichText`. User code is unlikely to be
-  affected unless you've extended Zefyr with custom implementations of block widgets.
-* Breaking change: renamed `RenderEditableParagraph` to `RenderZefyrParagraph`. User code is
-  unlikely to be affected unless you've extended Zefyr with custom implementations of block widgets.
-* Added `ZefyrScope` class - replaces previously used scope objects `ZefyrEditableTextScope` and
-  `ZefyrEditorScope`. Unified all shared resources under one class.
-* Breaking change: removed `ZefyrEditor.of` and `ZefyrEditableText.of` static methods.
-  Use `ZefyrScope.of` instead.
+## 0.4.0
+
+* Breaking change: upgraded `image_picker` to `^0.5.0` and `url_launcher` to `^5.0.0` which
+  requires migration to Android X. You must migrate your app in order to use this version.
+  For details on how to migrate see:
+  - https://flutter.io/docs/development/packages-and-plugins/androidx-compatibility
+  - https://developer.android.com/jetpack/androidx/migrate
+
+## 0.3.1
+
+- Fixed autofocus not being triggered when set to `true` for the first time.
+- Allow customizing cursor color via ZefyrTheme.
 
 ## 0.3.0
 

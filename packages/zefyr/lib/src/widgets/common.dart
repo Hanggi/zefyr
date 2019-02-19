@@ -69,6 +69,7 @@ class _RawZefyrLineState extends State<RawZefyrLine> {
         showCursor: scope.showCursor,
         selection: scope.selection,
         selectionColor: theme.selectionColor,
+        cursorColor: theme.cursorColor,
       );
       content = CompositedTransformTarget(link: _link, child: content);
     }
@@ -144,9 +145,28 @@ class _RawZefyrLineState extends State<RawZefyrLine> {
     EmbedAttribute embed = node.style.get(NotusAttribute.embed);
 
     if (embed.type == EmbedType.horizontalRule) {
-      return ZefyrHorizontalRule(node: node);
+      final hr = new ZefyrHorizontalRule(node: node);
+      return new EditableBox(
+        child: hr,
+        node: widget.node,
+        layerLink: _link,
+        renderContext: editable.renderContext,
+        showCursor: editable.showCursor,
+        selection: editable.selection,
+        selectionColor: theme.selectionColor,
+        cursorColor: theme.cursorColor,
+      );
     } else if (embed.type == EmbedType.image) {
-      return ZefyrImage(node: node, delegate: scope.imageDelegate);
+      return new EditableBox(
+        child: ZefyrImage(node: node, delegate: editable.imageDelegate),
+        node: widget.node,
+        layerLink: _link,
+        renderContext: editable.renderContext,
+        showCursor: editable.showCursor,
+        selection: editable.selection,
+        selectionColor: theme.selectionColor,
+        cursorColor: theme.cursorColor,
+      );
     } else {
       throw new UnimplementedError('Unimplemented embed type ${embed.type}');
     }
