@@ -13,10 +13,10 @@ class InputConnectionController implements TextInputClient {
       : assert(onValueChanged != null);
 
   /// davinqi
-  @override
-  void updateFloatingCursor(RawFloatingCursorPoint point) {
-    // TODO: implement updateFloatingCursor
-  }
+//  @override
+//  void updateFloatingCursor(RawFloatingCursorPoint point) {
+//    // TODO: implement updateFloatingCursor
+//  }
   //
   // New public members
   //
