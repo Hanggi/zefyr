@@ -38,6 +38,7 @@ class ZefyrEditableText extends StatefulWidget {
 
     /// davinqi
     this.mindmapDelegate,
+    this.plusDelegate,
     this.autofocus: true,
     this.enabled: true,
     this.padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -53,6 +54,8 @@ class ZefyrEditableText extends StatefulWidget {
 
   /// davinqi delegate
   final DavinqiMindmapDelegate mindmapDelegate;
+  final PlusDelegate plusDelegate;
+//  final  mindmapDelegate;
 
   /// Padding around editable area.
   final EdgeInsets padding;

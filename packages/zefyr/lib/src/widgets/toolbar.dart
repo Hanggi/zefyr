@@ -285,8 +285,8 @@ class ZefyrToolbarState extends State<ZefyrToolbar>
       FormatButton(),
       HeadingButton(),
       LinkButton(),
-      ImageButton(),
-      CustomToolsButton(),
+//      ImageButton(),
+//      CustomToolsButton(),
       buildButton(context, ZefyrToolbarAction.code),
     ];
     return buttons;

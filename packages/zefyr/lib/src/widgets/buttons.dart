@@ -68,7 +68,7 @@ class ZefyrButton extends StatelessWidget {
     final toolbar = ZefyrToolbar.of(context);
     final editor = toolbar.editor;
     final toolbarTheme = ZefyrTheme.of(context).toolbarTheme;
-    final pressedHandler = _getPressedHandler(editor, toolbar);
+    final pressedHandler = _getPressedHandler(editor, toolbar, context);
     final iconColor = (pressedHandler == null)
         ? toolbarTheme.disabledIconColor
         : toolbarTheme.iconColor;
@@ -79,7 +79,7 @@ class ZefyrButton extends StatelessWidget {
         size: _iconSize,
         iconColor: iconColor,
         color: _getColor(editor, toolbarTheme),
-        onPressed: _getPressedHandler(editor, toolbar),
+        onPressed: _getPressedHandler(editor, toolbar, context),
       );
     } else {
       assert(_text != null);
@@ -89,7 +89,7 @@ class ZefyrButton extends StatelessWidget {
         action: action,
         child: new Text(_text, style: style),
         color: _getColor(editor, toolbarTheme),
-        onPressed: _getPressedHandler(editor, toolbar),
+        onPressed: _getPressedHandler(editor, toolbar, context),
       );
     }
   }
@@ -106,7 +106,7 @@ class ZefyrButton extends StatelessWidget {
   }
 
   VoidCallback _getPressedHandler(
-      ZefyrScope editor, ZefyrToolbarState toolbar) {
+      ZefyrScope editor, ZefyrToolbarState toolbar, BuildContext context) {
     if (onPressed != null) {
       return onPressed;
     } else if (isAttributeAction) {
@@ -119,7 +119,7 @@ class ZefyrButton extends StatelessWidget {
     } else if (action == ZefyrToolbarAction.hideKeyboard) {
       return () => editor.hideKeyboard();
     } else if (action == ZefyrToolbarAction.plus) {
-      return () => editor.plusDelegate.test();
+      return () => editor.plusDelegate.test(context);
     }
 
     return null;

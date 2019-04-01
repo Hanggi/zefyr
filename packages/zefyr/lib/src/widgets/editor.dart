@@ -38,7 +38,7 @@ class ZefyrEditor extends StatefulWidget {
   final ZefyrImageDelegate imageDelegate;
   final ScrollPhysics physics;
 
-  /// davinqi delegate
+  /// davinqi delegate 222
   final DavinqiMindmapDelegate mindmapDelegate;
   final PlusDelegate plusDelegate;
 
@@ -101,12 +101,14 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
 
   @override
   void initState() {
+    print(widget.plusDelegate);
     super.initState();
     _imageDelegate = widget.imageDelegate ?? new ZefyrDefaultImageDelegate();
 
     /// davinqi delegate
     _mindmapDelegate = widget.mindmapDelegate;
-	_plusDelegate = widget.plusDelegate;
+    _plusDelegate = widget.plusDelegate;
+    _plusDelegate = DavinqiDefaultPlusDelegate();
   }
 
   @override
@@ -117,9 +119,11 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
     if (widget.imageDelegate != oldWidget.imageDelegate) {
       _imageDelegate = widget.imageDelegate ?? new ZefyrDefaultImageDelegate();
       _scope.imageDelegate = _imageDelegate;
+
       /// davinqi delegate
       _scope.mindmapDelegate = _mindmapDelegate;
-	  _scope.plusDelegate = _plusDelegate;
+      _scope.plusDelegate = _plusDelegate;
+      _scope.plusDelegate = DavinqiDefaultPlusDelegate();
     }
   }
 
@@ -168,6 +172,7 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
       controller: _scope.controller,
       focusNode: _scope.focusNode,
       imageDelegate: _scope.imageDelegate,
+      plusDelegate: _scope.plusDelegate,
       autofocus: widget.autofocus,
       enabled: widget.enabled,
       padding: widget.padding,

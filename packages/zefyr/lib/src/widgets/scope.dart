@@ -36,6 +36,7 @@ class ZefyrScope extends ChangeNotifier {
   ZefyrScope.editable({
     @required ZefyrController controller,
     @required ZefyrImageDelegate imageDelegate,
+    @required PlusDelegate plusDelegate,
     @required FocusNode focusNode,
     @required FocusScopeNode focusScope,
   })  : assert(controller != null),
@@ -45,6 +46,8 @@ class ZefyrScope extends ChangeNotifier {
         isEditable = true,
         _controller = controller,
         _imageDelegate = imageDelegate,
+  /// davinqi
+        _plusDelegate = plusDelegate,
 //        _mindmapDelegate = mindmapDelegate,
         _focusNode = focusNode,
         _focusScope = focusScope,
@@ -76,20 +79,21 @@ class ZefyrScope extends ChangeNotifier {
   DavinqiMindmapDelegate _mindmapDelegate;
   DavinqiMindmapDelegate get mindmapDelegate => _mindmapDelegate;
   set mindmapDelegate(DavinqiMindmapDelegate value) {
-    assert(value != null);
+//    assert(value != null);
     if (_mindmapDelegate != value) {
       _mindmapDelegate = value;
       notifyListeners();
     }
   }
+
   PlusDelegate _plusDelegate;
   PlusDelegate get plusDelegate => _plusDelegate;
   set plusDelegate(PlusDelegate value) {
-	  assert(value != null);
-	  if (_plusDelegate != value) {
-		  _plusDelegate = value;
-		  notifyListeners();
-	  }
+//    assert(value != null);
+    if (_plusDelegate != value) {
+      _plusDelegate = value;
+      notifyListeners();
+    }
   }
 
   ZefyrController _controller;
