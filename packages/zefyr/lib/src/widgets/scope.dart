@@ -89,7 +89,7 @@ class ZefyrScope extends ChangeNotifier {
   PlusDelegate _plusDelegate;
   PlusDelegate get plusDelegate => _plusDelegate;
   set plusDelegate(PlusDelegate value) {
-//    assert(value != null);
+    assert(value != null);
     if (_plusDelegate != value) {
       _plusDelegate = value;
       notifyListeners();

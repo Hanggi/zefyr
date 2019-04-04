@@ -107,7 +107,7 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
 
     /// davinqi delegate
     _mindmapDelegate = widget.mindmapDelegate;
-    _plusDelegate = widget.plusDelegate;
+//    _plusDelegate = widget.plusDelegate;
     _plusDelegate = DavinqiDefaultPlusDelegate();
   }
 
@@ -122,7 +122,7 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
 
       /// davinqi delegate
       _scope.mindmapDelegate = _mindmapDelegate;
-      _scope.plusDelegate = _plusDelegate;
+//      _scope.plusDelegate = _plusDelegate;
       _scope.plusDelegate = DavinqiDefaultPlusDelegate();
     }
   }

@@ -17,7 +17,7 @@ class DavinqiDefaultPlusDelegate implements PlusDelegate {
 //    SystemChannels.textInput.invokeMethod('TextInput.hide');
 
     var toolbar = ZefyrToolbar.of(c);
-    print(toolbar);
+//    print(toolbar);
     showCupertinoModalPopup<String>(
       context: c,
       builder: (BuildContext context) => CupertinoActionSheet(
@@ -26,9 +26,19 @@ class DavinqiDefaultPlusDelegate implements PlusDelegate {
 //                'Please select the best dessert from the options below.'),
             actions: <Widget>[
               CupertinoActionSheetAction(
-                child: const Text(
-                  '相机',
-                  style: TextStyle(color: Colors.orange),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.camera_alt,
+                      color: Colors.orange,
+                    ),
+                    Expanded(
+                      child: Text(
+                        '相机',
+                        style: TextStyle(color: Colors.orange),
+                      ),
+                    )
+                  ],
                 ),
                 onPressed: () async {
                   Navigator.pop(context, 'camera');
@@ -40,9 +50,19 @@ class DavinqiDefaultPlusDelegate implements PlusDelegate {
                 },
               ),
               CupertinoActionSheetAction(
-                child: const Text(
-                  '从相册选择',
-                  style: TextStyle(color: Colors.orange),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.image,
+                      color: Colors.orange,
+                    ),
+                    Expanded(
+                      child: Text(
+                        '从相册选择',
+                        style: TextStyle(color: Colors.orange),
+                      ),
+                    )
+                  ],
                 ),
                 onPressed: () async {
                   Navigator.pop(context, 'gallery');
@@ -57,9 +77,19 @@ class DavinqiDefaultPlusDelegate implements PlusDelegate {
                 },
               ),
               CupertinoActionSheetAction(
-                child: const Text(
-                  '知识树',
-                  style: TextStyle(color: Colors.orange),
+                child: Row(
+                  children: <Widget>[
+                    Icon(
+                      Icons.streetview,
+                      color: Colors.orange,
+                    ),
+                    Expanded(
+                      child: Text(
+                        '知识树',
+                        style: TextStyle(color: Colors.orange),
+                      ),
+                    )
+                  ],
                 ),
                 onPressed: () async {
                   Navigator.pop(context, 'mindmap');
