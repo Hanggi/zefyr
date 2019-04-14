@@ -120,11 +120,12 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
       _imageDelegate = widget.imageDelegate ?? new ZefyrDefaultImageDelegate();
       _scope.imageDelegate = _imageDelegate;
 
-      /// davinqi delegate
-      _scope.mindmapDelegate = _mindmapDelegate;
-//      _scope.plusDelegate = _plusDelegate;
-      _scope.plusDelegate = DavinqiDefaultPlusDelegate();
     }
+	/// davinqi delegate
+	_scope.mindmapDelegate = _mindmapDelegate;
+//      _scope.plusDelegate = _plusDelegate;
+	  _plusDelegate = new DavinqiDefaultPlusDelegate();
+	  _scope.plusDelegate = _plusDelegate;
   }
 
   @override
@@ -139,6 +140,7 @@ class _ZefyrEditorState extends State<ZefyrEditor> {
     if (_scope == null) {
       _scope = ZefyrScope.editable(
         imageDelegate: _imageDelegate,
+        plusDelegate: _plusDelegate,
         controller: widget.controller,
         focusNode: widget.focusNode,
         focusScope: FocusScope.of(context),

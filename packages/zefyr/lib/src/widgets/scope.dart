@@ -46,7 +46,8 @@ class ZefyrScope extends ChangeNotifier {
         isEditable = true,
         _controller = controller,
         _imageDelegate = imageDelegate,
-  /// davinqi
+
+        /// davinqi
         _plusDelegate = plusDelegate,
 //        _mindmapDelegate = mindmapDelegate,
         _focusNode = focusNode,

@@ -119,7 +119,12 @@ class ZefyrButton extends StatelessWidget {
     } else if (action == ZefyrToolbarAction.hideKeyboard) {
       return () => editor.hideKeyboard();
     } else if (action == ZefyrToolbarAction.plus) {
-      return () => editor.plusDelegate.test(context);
+      return () {
+        print('click editor delegate');
+		print(editor);
+        print(editor.plusDelegate);
+        return editor.plusDelegate.handlePlus(context);
+      };
     }
 
     return null;

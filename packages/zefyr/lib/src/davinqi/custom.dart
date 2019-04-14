@@ -8,22 +8,20 @@ import 'package:flutter/cupertino.dart';
 
 //import '../widgets/toolbar.dart';
 abstract class PlusDelegate {
-  void test(BuildContext context);
+  void handlePlus(BuildContext context);
 }
 
 class DavinqiDefaultPlusDelegate implements PlusDelegate {
   @override
-  void test(BuildContext c) {
+  void handlePlus(BuildContext c) {
 //    SystemChannels.textInput.invokeMethod('TextInput.hide');
+  print('handlePlus');
 
     var toolbar = ZefyrToolbar.of(c);
 //    print(toolbar);
     showCupertinoModalPopup<String>(
       context: c,
       builder: (BuildContext context) => CupertinoActionSheet(
-//            title: const Text('Favorite Dessert'),
-//            message: const Text(
-//                'Please select the best dessert from the options below.'),
             actions: <Widget>[
               CupertinoActionSheetAction(
                 child: Row(
